@@ -1,0 +1,3 @@
+Speedway Font
+
+The Speedway font is a display font that resembles the letter "S" in the Speedway logo. I created this font using Inkscape and FontLab Studio. While the Speedway font contains alphabetic characters, this font is not suitable for use in text or other applications which suggest small font sizes; however, its recommended use is for stickers, signs and logos. This font is in the public domain; please read the terms of use at http://jlhfonts.blogspot.com/

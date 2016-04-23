@@ -73,6 +73,14 @@ public class Timer : MonoBehaviour {
             }
         }
 
+        if(gameTimer >= 0 && gameTimer <= 8.0f && !gameObject.GetComponent<AudioSource>().isPlaying)
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+        }
+
+        {
+
+        }
         if (gameTimer == 0.0f)
         {
             if (!spikesDropped)
