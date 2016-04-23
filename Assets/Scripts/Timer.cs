@@ -8,14 +8,23 @@ public class Timer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameTimer = 60.0f;
+        gameTimer = 30.0f;
         timerText = GameObject.Find("TimerText");
 	}
 	
     void FixedUpdate () {
         gameTimer -= Time.deltaTime;
+        if (gameTimer < 0.0f)
+        {
+            gameTimer = 0.0f;
+        }
+
         timerText.GetComponent<Text>().text = Mathf.Floor(gameTimer).ToString();
-        Debug.Log(gameTimer.ToString());
+
+        if (gameTimer == 0.0f)
+        {
+            Debug.Log("Time is up, drop the spikes.");
+        }
     }
 
 	// Update is called once per frame
