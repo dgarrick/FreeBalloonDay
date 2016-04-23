@@ -43,7 +43,9 @@ MonoBehaviour:
   - Level0
   - Level1
   - Level2
+  - Level4
   - Level3
+  - Level5
   currLevel: 0
 --- !u!1001 &100100000
 Prefab:
@@ -54,7 +56,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: levels.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[2]
@@ -62,7 +64,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[3]
-      value: Level3
+      value: Level4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: levels.Array.data[5]
+      value: Level5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
