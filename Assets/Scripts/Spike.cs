@@ -22,6 +22,7 @@ public class Spike : MonoBehaviour {
             if (Vector3.Distance(balloon.transform.position, gameObject.transform.position) < 2)
             {
                 timer.balloonsDestroyed += 1;
+                balloon.GetComponent<AudioSource>().Play();
             }
         }
         timer.reportingSpikes += 1;
