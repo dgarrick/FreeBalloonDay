@@ -65,7 +65,8 @@ public class Timer : MonoBehaviour {
                     nextLevelTimer -= Time.deltaTime;
                     if (nextLevelTimer <= 0)
                     {
-                        DontDestroyOnLoad(tracker);
+                        if (tracker.currLevel != 0)
+                            DontDestroyOnLoad(tracker);
                         Application.LoadLevel(tracker.getLevelName());
                     }
                     theText.text = "Retry\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);

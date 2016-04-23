@@ -32,7 +32,7 @@ public class ButtonScript : MonoBehaviour {
                      lineRenderer = go.AddComponent<LineRenderer>();
                 lineRenderer.enabled = true;
                 lineRenderer.SetColors(c1, c2);
-                lineRenderer.material = new Material(Shader.Find("Particles/Additive"));
+                lineRenderer.material = Resources.Load("Materials/Laser") as Material;
                 lineRenderer.SetWidth(1F, 1F);
                 lineRenderer.SetVertexCount(lengthOfLineRenderer);
                 pressTime = Time.time;
