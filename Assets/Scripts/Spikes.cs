@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Spikes : MonoBehaviour {
 
@@ -17,22 +18,32 @@ public class Spikes : MonoBehaviour {
 	
 	}
 
-    public void dropSpikes()
+    public int dropSpikes()
     {
+        int numSpikes = 0;
         if (!player)
             player = GameObject.FindObjectOfType<PlayerMovement>();
         Destroy(player.gameObject);
+        
         // Set camera somewhere convenient
         GameObject.Instantiate(endCameraPrefab);
 
+        //Turn off guide lights
+        Block[] blocks = GameObject.FindObjectsOfType<Block>();
+        foreach (Block block in blocks)
+        {
+            Destroy(block.gameObject.transform.GetChild(0).gameObject);
+            Destroy(block.gameObject.transform.GetChild(1).gameObject);
+        }
+
         //Drop the spikes!
         Spike[] spikes = GameObject.FindObjectsOfType<Spike>();
-        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Block");
         foreach (Spike spike in spikes)
         {
+            numSpikes += 1;
             // Figure out if they collide or not
             bool matchingBlock = false;
-            foreach (GameObject block in blocks)
+            foreach (Block block in blocks)
             {
                 if (block.transform.position.x == spike.transform.position.x && block.transform.position.z == spike.transform.position.z)
                 {
@@ -41,21 +52,17 @@ public class Spikes : MonoBehaviour {
             }
             if (matchingBlock)
             {
-                StartCoroutine(spike.changePosition(new Vector3(spike.gameObject.transform.position.x, 35, spike.gameObject.transform.position.z), 1.5f));
-            }
+                float time = Random.Range(4, 10) / 10f;
+                StartCoroutine(spike.changePosition(new Vector3(spike.gameObject.transform.position.x, 35, spike.gameObject.transform.position.z), time));
+            }   
             else
             {
-                StartCoroutine(spike.changePosition(new Vector3(spike.gameObject.transform.position.x, 2.5f, spike.gameObject.transform.position.z), 3f));
+                float time = Random.Range(8, 18) / 10f;
+                StartCoroutine(spike.changePosition(new Vector3(spike.gameObject.transform.position.x, 2.5f, spike.gameObject.transform.position.z), time));
             }
 
         }
+        return numSpikes;
     }
-
-    private void restOfDrop()
-    {
-        //Check for pops
-        Debug.Log("Yo, we checking for pops");
-    }
-
    
 }

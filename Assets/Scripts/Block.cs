@@ -34,7 +34,12 @@ public class Block : MonoBehaviour {
     }
 
     private IEnumerator changePosition(Vector3 newPos) {
-        float time = 1f;
+        BoxCollider[] colliders = GetComponents<BoxCollider>();
+        foreach (BoxCollider coll in colliders)
+        {
+            coll.enabled = false;
+        }
+        float time = 0.5f;  
         float i = 0.0f;
         float rate = 1.0f/time;
         Vector3 oldPos = transform.position;
@@ -42,6 +47,10 @@ public class Block : MonoBehaviour {
             i += Time.deltaTime * rate;
             gameObject.transform.position = Vector3.Lerp(oldPos, newPos, i);
             yield return null;
+        }
+        foreach (BoxCollider coll in colliders)
+        {
+            coll.enabled = true;
         }
     }
 }
