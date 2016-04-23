@@ -7,8 +7,7 @@ public class Timer : MonoBehaviour {
     private GameObject timerText;
 
 	// Use this for initialization
-	void Start () {
-        gameTimer = 30.0f;
+	void Start () { 
         timerText = GameObject.Find("TimerText");
 	}
 	
