@@ -16,6 +16,7 @@ public class Spike : MonoBehaviour {
 
     private void checkPierce()
     {
+        bool hitBalloon = false;
         GameObject[] balloons = GameObject.FindGameObjectsWithTag("Balloon");
         foreach (GameObject balloon in balloons)
         {
@@ -23,7 +24,12 @@ public class Spike : MonoBehaviour {
             {
                 timer.balloonsDestroyed += 1;
                 balloon.GetComponent<AudioSource>().Play();
+                hitBalloon = true;
             }
+        }
+        if (!hitBalloon)
+        {
+            gameObject.GetComponent<AudioSource>().Play();
         }
         timer.reportingSpikes += 1;
     }
