@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3326122}
   - 136: {fileID: 13625764}
   - 23: {fileID: 2340298}
+  - 114: {fileID: 11483560}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -27,11 +28,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 466242}
   - 33: {fileID: 3391738}
-  - 136: {fileID: 13624016}
   - 23: {fileID: 2321354}
-  - 114: {fileID: 11448296}
   m_Layer: 0
-  m_Name: ButtonBase 1
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00070762634, y: 1.8865669, z: -0.010634601}
+  m_LocalPosition: {x: -0.00070762634, y: 3.3, z: -0.010634601}
   m_LocalScale: {x: 0.75, y: 4, z: 0.75}
   m_Children: []
   m_Father: {fileID: 466242}
@@ -128,30 +127,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177142}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11448296
+--- !u!114 &11483560
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177142}
+  m_GameObject: {fileID: 130248}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0e11ff680f08a1429ddaddf14467fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &13624016
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177142}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13625764
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -182,7 +168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
-      value: 32
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
