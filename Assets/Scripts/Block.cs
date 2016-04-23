@@ -15,11 +15,9 @@ public class Block : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
             Vector3 myPos = gameObject.transform.position;
             Vector3 playerPos = other.gameObject.transform.position;
             Vector3 diff = playerPos - myPos;
-            Debug.Log(diff.x + " " + diff.z);
             bool xLarger = Mathf.Abs(diff.x) > Mathf.Abs(diff.z);
             if (xLarger && diff.x > 0)
                  StartCoroutine(changePosition(new Vector3(-4, 0, 0) + gameObject.transform.position));

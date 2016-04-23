@@ -5,9 +5,11 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour {
     public float gameTimer;
     private GameObject timerText;
+    bool spikesDropped;
 
 	// Use this for initialization
-	void Start () { 
+	void Start () {
+        spikesDropped = false;
         timerText = GameObject.Find("TimerText");
 	}
 	
@@ -22,7 +24,13 @@ public class Timer : MonoBehaviour {
 
         if (gameTimer == 0.0f)
         {
-            Debug.Log("Time is up, drop the spikes.");
+            if (!spikesDropped)
+            {
+                spikesDropped = true;
+                Debug.Log("Time is up, drop the spikes.");
+                Spikes spikes = GameObject.FindObjectOfType<Spikes>();
+                spikes.dropSpikes();
+            }
         }
     }
 
