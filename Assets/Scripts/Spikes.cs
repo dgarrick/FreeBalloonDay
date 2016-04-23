@@ -18,9 +18,8 @@ public class Spikes : MonoBehaviour {
 	
 	}
 
-    public int dropSpikes()
+    public void dropSpikes()
     {
-        int numSpikes = 0;
         if (!player)
             player = GameObject.FindObjectOfType<PlayerMovement>();
         Destroy(player.gameObject);
@@ -40,7 +39,6 @@ public class Spikes : MonoBehaviour {
         Spike[] spikes = GameObject.FindObjectsOfType<Spike>();
         foreach (Spike spike in spikes)
         {
-            numSpikes += 1;
             // Figure out if they collide or not
             bool matchingBlock = false;
             foreach (Block block in blocks)
@@ -62,7 +60,6 @@ public class Spikes : MonoBehaviour {
             }
 
         }
-        return numSpikes;
     }
    
 }
