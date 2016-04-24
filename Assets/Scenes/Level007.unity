@@ -1647,7 +1647,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460452, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
       propertyPath: m_Text
-      value: "Good luck!\t"
+      value: Slow and Steady...
       objectReference: {fileID: 0}
     - target: {fileID: 455720, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1660,6 +1660,10 @@ Prefab:
     - target: {fileID: 455720, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
       propertyPath: m_LocalScale.z
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467734, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
