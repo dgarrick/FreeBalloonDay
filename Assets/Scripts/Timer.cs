@@ -38,8 +38,8 @@ public class Timer : MonoBehaviour {
 					if (balloonsDestroyed == 0) {
 						theText.text = "Next level\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);
 						if (nextLevelTimer <= 0.0f) {
-							DontDestroyOnLoad (tracker);
 							tracker.completedLevel ();
+							DontDestroyOnLoad (tracker);
 							Application.LoadLevel (tracker.getLevelName ());
 						}
 					} 

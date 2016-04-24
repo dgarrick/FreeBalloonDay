@@ -7,6 +7,7 @@ public class Medal : MonoBehaviour {
 	void Start () {
         StartCoroutine(changePosition(new Vector3(0.0f, -0.1f, 0.0f), 3.0f));
         StartCoroutine(changeRotation(Quaternion.Euler(0, -15, 0), 2.0f));
+		Destroy (GameObject.Find ("LevelTracker"));
     }
 	
     void FixedUpdate()
