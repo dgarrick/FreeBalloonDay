@@ -150,13 +150,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - Level0
-  - Level1
-  - Level2
-  - Level4
-  - Level3
-  - Level5
-  - Level7
+  - Level000
+  - Level001
+  - Level002
+  - Level003
+  - Level004
+  - Level005
+  - Level006
+  - Level007
   - WinnerWinnerChickenDinner
   currLevel: 0
 --- !u!1001 &100100000
@@ -168,7 +169,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: levels.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
@@ -176,23 +177,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[2]
-      value: Level2
+      value: Level002
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[3]
-      value: Level4
+      value: Level003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[5]
-      value: Level5
+      value: Level005
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[6]
-      value: Level7
+      value: Level006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: levels.Array.data[7]
-      value: WinnerWinnerChickenDinner
+      value: Level007
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: currLevel
@@ -401,6 +402,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: levels.Array.data[0]
+      value: Level000
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: levels.Array.data[1]
+      value: Level001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: levels.Array.data[4]
+      value: Level004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

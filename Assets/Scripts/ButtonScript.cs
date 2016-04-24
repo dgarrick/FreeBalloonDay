@@ -23,7 +23,6 @@ public class ButtonScript : MonoBehaviour {
             Debug.Log("Player hit the button!");
             foreach (GameObject go in spikes)
             {
-                Debug.Log("wow!");
                 Color c1 = Color.red;
                 Color c2 = Color.red;
                 int lengthOfLineRenderer = 120;
@@ -57,7 +56,6 @@ public class ButtonScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(waitTime);
         GameObject[] spikes = GameObject.FindGameObjectsWithTag("Spike");
-            Debug.Log("Time's up!");
             foreach (GameObject go in spikes)
             {
                 LineRenderer lineRenderer = go.GetComponent<LineRenderer>();
