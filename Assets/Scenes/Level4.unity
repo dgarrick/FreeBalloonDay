@@ -212,6 +212,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11460452, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
+      propertyPath: m_Text
+      value: Big Red Button.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7abefe404d6a864ea731bf02f6c9275, type: 2}
   m_IsPrefabParent: 0
@@ -535,7 +539,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1001 &1121308887
 Prefab:
   m_ObjectHideFlags: 0
@@ -620,6 +624,10 @@ Prefab:
     - target: {fileID: 453434, guid: bfb09dd70583c7f48b6c3e5250fb51db, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402424, guid: bfb09dd70583c7f48b6c3e5250fb51db, type: 2}
+      propertyPath: m_Text
+      value: "Big Red Button...\t"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfb09dd70583c7f48b6c3e5250fb51db, type: 2}
