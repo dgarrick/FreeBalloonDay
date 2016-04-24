@@ -4,6 +4,8 @@ using System;
 
 public class ButtonScript : MonoBehaviour {
 
+	bool enabled = true;
+
     // Use this for initialization
     void Start() {
 
@@ -12,7 +14,7 @@ public class ButtonScript : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 		if (gameObject.transform.localScale.y >= 0 && enabled == false)
-			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*5, 0);
+			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*10, 0);
     }
 
 	void FixedUpdate() {

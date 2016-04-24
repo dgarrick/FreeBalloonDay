@@ -16,7 +16,7 @@ public class BlueButton : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (gameObject.transform.localScale.y >= 0 && enabled == false)
-			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*5, 0);
+			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*10, 0);
 	}
 		
 	void OnTriggerEnter(Collider other) {
