@@ -3,8 +3,6 @@ using System.Collections;
 using System;
 
 public class ButtonScript : MonoBehaviour {
-    float pressTime = 0f;
-    Boolean enables = true;
     // Use this for initialization
     void Start() {
 
@@ -34,7 +32,6 @@ public class ButtonScript : MonoBehaviour {
                 lineRenderer.material = Resources.Load("Materials/Laser") as Material;
                 lineRenderer.SetWidth(1F, 1F);
                 lineRenderer.SetVertexCount(lengthOfLineRenderer);
-                pressTime = Time.time;
                 int i = 0;
                 float x = go.transform.position.x;
                 float y = 60 + go.transform.position.y;

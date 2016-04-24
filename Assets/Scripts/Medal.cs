@@ -3,11 +3,8 @@ using System.Collections;
 
 public class Medal : MonoBehaviour {
 
-    GameObject winnerMedal;
-
 	// Use this for initialization
 	void Start () {
-        winnerMedal = GameObject.Find("WinnerMedal");
         StartCoroutine(changePosition(new Vector3(0.0f, -0.1f, 0.0f), 3.0f));
         StartCoroutine(changeRotation(Quaternion.Euler(0, -15, 0), 2.0f));
     }
