@@ -11,14 +11,20 @@ public class BlueButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
+	void FixedUpdate() {
+		if (gameObject.transform.localScale.y >= 0 && enabled == false)
+			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*5, 0);
+	}
+		
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player" && enabled) {
 			enabled = false;
 			Timer timer = GameObject.FindObjectOfType<Timer> ();
 			timer.gameTimer = 1.0f;
+
 		}
 	}
 }

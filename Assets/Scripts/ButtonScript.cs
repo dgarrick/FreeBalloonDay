@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 
 public class ButtonScript : MonoBehaviour {
+
     // Use this for initialization
     void Start() {
 
@@ -10,15 +11,20 @@ public class ButtonScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+		if (gameObject.transform.localScale.y >= 0 && enabled == false)
+			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*5, 0);
     }
+
+	void FixedUpdate() {
+		
+	}
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && enabled)
         {
             GameObject[] spikes = GameObject.FindGameObjectsWithTag("Spike");
-            Debug.Log("Player hit the button!");
+			enabled = false;
             foreach (GameObject go in spikes)
             {
                 Color c1 = Color.red;
@@ -44,7 +50,6 @@ public class ButtonScript : MonoBehaviour {
                     i++;
                 }
             }
-            enabled = false;
             StartCoroutine(waitAndKillLasers(5));
         }
     }
