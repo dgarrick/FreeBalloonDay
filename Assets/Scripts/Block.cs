@@ -3,8 +3,14 @@ using System.Collections;
 
 public class Block : MonoBehaviour {
 
+	Block[] blocks;
+	BoxCollider[] colliders;
+	Vector3 myPosition;
 	// Use this for initialization
 	void Start () {
+		blocks = GameObject.FindObjectsOfType<Block> ();
+		myPosition = gameObject.transform.position;
+		colliders = GetComponents<BoxCollider>();
 	}
 	
 	// Update is called once per frame
@@ -19,22 +25,35 @@ public class Block : MonoBehaviour {
             Vector3 playerPos = other.gameObject.transform.position;
             Vector3 diff = playerPos - myPos;
             bool xLarger = Mathf.Abs(diff.x) > Mathf.Abs(diff.z);
-            if (xLarger && diff.x > 0)
-                 StartCoroutine(changePosition(new Vector3(-4, 0, 0) + gameObject.transform.position));
-            else if (xLarger && diff.x < 0)
-                 StartCoroutine(changePosition(new Vector3(4, 0, 0) + gameObject.transform.position));
-            else if (!xLarger && diff.z > 0)
-                 StartCoroutine(changePosition(new Vector3(0, 0, -4) + gameObject.transform.position));
+			if (xLarger && diff.x > 0)
+				tryMove (new Vector3(-4, 0, 0) + myPosition);
+			else if (xLarger && diff.x < 0)
+				tryMove(new Vector3 (4, 0, 0) + myPosition);
+			else if (!xLarger && diff.z > 0)
+				tryMove(new Vector3(0, 0, -4) + myPosition);
             else if (!xLarger && diff.z < 0)
-                StartCoroutine(changePosition(new Vector3(0, 0, 4) + gameObject.transform.position));
+				tryMove(new Vector3(0, 0, 4) + myPosition);
             else
                 Debug.Log("Something very bad happened");
-
         }
     }
 
+	private void tryMove(Vector3 position) {
+		if (!hasBlock (position))
+			StartCoroutine (changePosition (position));
+	}
+
+	public bool hasBlock(Vector3 position) {
+		bool ret = false;
+		foreach (Block block in blocks) {
+			Vector3 blockPos = block.gameObject.transform.position;
+			if (position.x == blockPos.x && position.y == blockPos.y && position.z == blockPos.z)
+				ret = true;
+		}
+		return ret;
+	}
+
     private IEnumerator changePosition(Vector3 newPos) {
-        BoxCollider[] colliders = GetComponents<BoxCollider>();
         foreach (BoxCollider coll in colliders)
         {
             coll.enabled = false;
@@ -52,5 +71,6 @@ public class Block : MonoBehaviour {
         {
             coll.enabled = true;
         }
+		myPosition = gameObject.transform.position;
     }
 }
