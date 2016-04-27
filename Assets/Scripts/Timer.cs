@@ -25,28 +25,30 @@ public class Timer : MonoBehaviour {
 	
     void FixedUpdate () {
         gameTimer -= Time.deltaTime;
-	gameTimer = (gameTimer < 0.0f) ? 0.0f : gameTimer;
-	if (!spikesDropped)
-	    timerText.GetComponent<Text> ().text = Mathf.Floor (gameTimer).ToString ();
-	else {
-	    theText.fontSize = 1;
-	    theText.text = "Balloons\nDestroyed\n" + balloonsDestroyed;
-	    if (reportingSpikes == expectedSpikes) {
-	        endWaitTimer = (endWaitTimer <= 0.0f) ? 0.0f : endWaitTimer - Time.deltaTime;
+		gameTimer = (gameTimer < 0.0f) ? 0.0f : gameTimer;
+		if (!spikesDropped)
+	    	timerText.GetComponent<Text> ().text = Mathf.Floor (gameTimer).ToString ();
+		else {
+	    	theText.fontSize = 1;
+	    	theText.text = "Balloons\nDestroyed\n" + balloonsDestroyed;
+	    	if (reportingSpikes == expectedSpikes) {
+	        	endWaitTimer = (endWaitTimer <= 0.0f) ? 0.0f : endWaitTimer - Time.deltaTime;
                 if (endWaitTimer <= 0.0f) {
-		    nextLevelTimer = (nextLevelTimer <= 0.0f) ? 0.0f : nextLevelTimer - Time.deltaTime;
-		    if (balloonsDestroyed == 0)
-		        theText.text = "Next level\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);
-		    else if (balloonsDestroyed >= 1)
-		        theText.text = "Retry in\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);
-		    if (nextLevelTimer <= 0.0f) {
-		        if (tracker.currLevel != 0)
-			    DontDestroyOnLoad(tracker);
-			if (balloonsDestroyed == 0)
-			    tracker.completedLevel();
-			Application.LoadLevel (tracker.getLevelName ());
-		    }
-		}
+		    		nextLevelTimer = (nextLevelTimer <= 0.0f) ? 0.0f : nextLevelTimer - Time.deltaTime;
+		    		if (balloonsDestroyed == 0)
+		        		theText.text = "Next level\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);
+		    		else if (balloonsDestroyed >= 1)
+		       			theText.text = "Retry in\nin " + ((nextLevelTimer > 0.0f) ? Mathf.Floor(nextLevelTimer) : 0);
+		    		if (nextLevelTimer <= 0.0f) {
+						if (balloonsDestroyed == 0) {
+							DontDestroyOnLoad (tracker);
+							tracker.completedLevel ();
+						}
+						else if (tracker.currLevel != 0)
+							DontDestroyOnLoad (tracker);
+						Application.LoadLevel (tracker.getLevelName ());
+		    		}
+				}
             }
         }
 
