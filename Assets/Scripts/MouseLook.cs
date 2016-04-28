@@ -7,8 +7,8 @@ public class MouseLook : MonoBehaviour
     float lookSensitivity = 3;
     float yRotation;
     float xRotation;
-    public float currentXRotation;
-    public float currentYRotation;
+    float currentXRotation;
+    float currentYRotation;
     float yRotationV;
     float xRotationV;
     float lookSmoothness = 0.1f;
@@ -16,9 +16,14 @@ public class MouseLook : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		currentYRotation = transform.rotation.eulerAngles.y;
         yRotation = currentYRotation;
         xRotation = currentXRotation;
     }
+
+	public float getY() {
+		return currentYRotation;
+	}
 
     // Update is called once per frame
     void Update()

@@ -11,17 +11,18 @@ public class PlayerMovement : MonoBehaviour
     public float rotateSpeed = 6;
     private Vector3 moveDirection = Vector3.zero;
     public GameObject cameraObject;
-
+	MouseLook mouseLook;
     CharacterController controller;
 
     void Start()
     {
+		mouseLook = cameraObject.GetComponent<MouseLook> ();
         controller = GetComponent<CharacterController>();
     }
     void Update()
     {
 
-        transform.rotation = Quaternion.Euler(0, cameraObject.GetComponent<MouseLook>().currentYRotation, 0);
+		transform.rotation = Quaternion.Euler(0, mouseLook.getY(), 0);
 
         if (controller.isGrounded)
         {
