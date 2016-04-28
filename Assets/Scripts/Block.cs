@@ -6,9 +6,11 @@ public class Block : MonoBehaviour {
 	Block[] blocks;
 	BoxCollider[] colliders;
 	Vector3 myPosition;
+	GameObject middle;
 	// Use this for initialization
 	void Start () {
 		blocks = GameObject.FindObjectsOfType<Block> ();
+		middle = GameObject.Find ("Middle");
 		myPosition = gameObject.transform.position;
 		colliders = GetComponents<BoxCollider>();
 	}
@@ -39,8 +41,15 @@ public class Block : MonoBehaviour {
     }
 
 	private void tryMove(Vector3 position) {
-		if (!hasBlock (position))
+		if (!hasBlock (position) && isInBounds(position))
 			StartCoroutine (changePosition (position));
+	}
+
+	public bool isInBounds(Vector3 position) {
+		Vector3 middleScale = middle.transform.localScale;
+		if (Mathf.Abs (middleScale.x / 2) < Mathf.Abs (position.x) || Mathf.Abs (middleScale.z / 2) < Mathf.Abs (position.z))
+			return false;
+		return true;
 	}
 
 	public bool hasBlock(Vector3 position) {
