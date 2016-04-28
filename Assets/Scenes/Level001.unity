@@ -232,6 +232,14 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 404846, guid: 20e3d3b95c3a0b64ebb5f27b5cedfe75, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.12888215
+      objectReference: {fileID: 0}
+    - target: {fileID: 404846, guid: 20e3d3b95c3a0b64ebb5f27b5cedfe75, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.99165994
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20e3d3b95c3a0b64ebb5f27b5cedfe75, type: 2}
   m_IsPrefabParent: 0
