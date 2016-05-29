@@ -15,8 +15,6 @@ public class Block : MonoBehaviour {
 	private Color c1;
 	private Color c2;
 	private int lengthOfLineRenderer;
-	//private ParticleEmitter emitter;
-	//private Particle[] particles;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +27,9 @@ public class Block : MonoBehaviour {
 		//line renderer properties
 		laserMat = Resources.Load("Materials/Cone") as Material;
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
-		lineRenderer.Add
 		c1 = Color.white;
 		c2 = Color.white;
-		lengthOfLineRenderer = 120;
+		lengthOfLineRenderer = 60;
 		lineRenderer.transform.parent = gameObject.transform;
 		lineRenderer.enabled = true;
 		lineRenderer.SetColors(c1, c2);
@@ -40,10 +37,6 @@ public class Block : MonoBehaviour {
 		lineRenderer.SetWidth(1F, 1F);
 		lineRenderer.SetVertexCount(lengthOfLineRenderer);
 
-		//line particles
-		//emitter = gameObject.AddComponent<ParticleEmitter>();
-		//particles = emitter.particles;
-		//Debug.Log (particles.Length);
 		drawLine ();
 	}
 
@@ -52,7 +45,7 @@ public class Block : MonoBehaviour {
 			lineRenderer.enabled = true;
 		int i = 0;
 		float x = gameObject.transform.position.x;
-		float y = 60 + gameObject.transform.position.y;
+		float y = 28f+gameObject.transform.position.y;
 		float z = gameObject.transform.position.z;
 		while (i < lengthOfLineRenderer) {
 			Vector3 pos = new Vector3 (x, y - i, z);
