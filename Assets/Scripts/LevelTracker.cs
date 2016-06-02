@@ -23,4 +23,12 @@ public class LevelTracker : MonoBehaviour {
     {
         return levels[currLevel];
     }
+
+	public void setLevelByName(string name) {
+		for (int i = 0; i < levels.Length; ++i) {
+			if (levels [i].Equals (name)) {
+				currLevel = i;
+			}
+		}
+	}
 }
