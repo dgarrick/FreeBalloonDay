@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
@@ -35,6 +36,9 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection.y = jumpSpeed;
 
         }
+		if (Input.GetButton ("Cancel")) {
+			SceneManager.LoadScene ("Menu");
+		}
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
