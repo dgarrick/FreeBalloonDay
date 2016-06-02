@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BlueButton : MonoBehaviour {
 
-	bool enabled = true;
+	bool canBeUsed = true;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,13 +15,13 @@ public class BlueButton : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (gameObject.transform.localScale.y >= 0 && enabled == false)
+		if (!canBeUsed && gameObject.transform.localScale.y >= 0)
 			gameObject.transform.localScale -= new Vector3 (0, Time.deltaTime*10, 0);
 	}
 		
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player" && enabled) {
-			enabled = false;
+		if (other.gameObject.tag == "Player" && canBeUsed) {
+			canBeUsed = false;
 			Timer timer = GameObject.FindObjectOfType<Timer> ();
 			timer.gameTimer = 1.0f;
 

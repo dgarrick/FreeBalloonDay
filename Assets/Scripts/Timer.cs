@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
     public float gameTimer;
@@ -46,7 +47,7 @@ public class Timer : MonoBehaviour {
 						}
 						else if (tracker.currLevel != 0)
 							DontDestroyOnLoad (tracker);
-						Application.LoadLevel (tracker.getLevelName ());
+						SceneManager.LoadScene(tracker.getLevelName());
 		    		}
 				}
             }

@@ -9,7 +9,6 @@ public class Block : MonoBehaviour {
 	GameObject middle;
 	public bool isIce;
 	public bool isImmovable;
-	private bool enabled;
 	private LineRenderer lineRenderer;
 	private Material laserMat;
 	private Color c1;
@@ -22,7 +21,6 @@ public class Block : MonoBehaviour {
 		middle = GameObject.Find ("Middle");
 		myPosition = gameObject.transform.position;
 		colliders = GetComponents<BoxCollider>();
-		enabled = false;
 
 		//line renderer properties
 		laserMat = Resources.Load("Materials/Cone") as Material;
