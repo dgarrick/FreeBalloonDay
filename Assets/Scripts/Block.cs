@@ -13,7 +13,6 @@ public class Block : MonoBehaviour {
 	private Material laserMat;
 	private Color c1;
 	private Color c2;
-	private int lengthOfLineRenderer;
 
 	// Use this for initialization
 	void Start () {
@@ -27,13 +26,12 @@ public class Block : MonoBehaviour {
 		lineRenderer = gameObject.AddComponent<LineRenderer>();
 		c1 = Color.white;
 		c2 = Color.white;
-		lengthOfLineRenderer = 60;
 		lineRenderer.transform.parent = gameObject.transform;
 		lineRenderer.enabled = true;
 		lineRenderer.SetColors(c1, c2);
 		lineRenderer.material = laserMat;
 		lineRenderer.SetWidth(1F, 1F);
-		lineRenderer.SetVertexCount(lengthOfLineRenderer);
+		lineRenderer.SetVertexCount(2);
 
 		drawLine ();
 	}
@@ -41,15 +39,11 @@ public class Block : MonoBehaviour {
 	void drawLine() {
 		if (!lineRenderer.enabled)
 			lineRenderer.enabled = true;
-		int i = 0;
 		float x = gameObject.transform.position.x;
 		float y = 28f+gameObject.transform.position.y;
 		float z = gameObject.transform.position.z;
-		while (i < lengthOfLineRenderer) {
-			Vector3 pos = new Vector3 (x, y - i, z);
-			lineRenderer.SetPosition(i, pos);
-			i++;
-		}
+		lineRenderer.SetPosition(0, new Vector3 (x, y-60, z));
+		lineRenderer.SetPosition (1, new Vector3 (x, y, z));
 	}
 
 	// Update is called once per frame
