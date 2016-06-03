@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class Menu : MonoBehaviour {
 
 	LevelTracker levelTracker;
+	AudioSource music;
 	Dropdown levelSelecter;
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,9 @@ public class Menu : MonoBehaviour {
 			Debug.LogError ("No LevelSelecter (Dropdown) found in scene!");
 		levelSelecter.ClearOptions ();
 		levelSelecter.AddOptions (new List<string>(levelTracker.levels));
+		// Set volume slider value
+		music = levelTracker.gameObject.GetComponent<AudioSource>();
+		GameObject.Find ("VolumeSlider").GetComponent<Slider> ().value = music.volume;
 	}
 
 	private void createLevelTracker() {
@@ -29,7 +33,11 @@ public class Menu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+	}
+
+	public void setMusicVolume(float volume) {
+		music.volume = volume;
 	}
 
 	public void startNew() {
