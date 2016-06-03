@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour {
     bool spikesDropped;
     public int balloonsDestroyed = 0;
     public int reportingSpikes = 0;
+	public int evilBalloonsKilled = 0;
+	private int totalEvilBalloons = 0;
     private int expectedSpikes = 0;
     LevelTracker tracker;
 
@@ -19,6 +21,7 @@ public class Timer : MonoBehaviour {
     void Start () {
         spikesDropped = false;
         expectedSpikes = (GameObject.FindGameObjectsWithTag("Spike")).Length;
+		totalEvilBalloons = (GameObject.FindGameObjectsWithTag("EvilBalloon")).Length;
         timerText = GameObject.Find("TimerText");
         theText = timerText.GetComponent<Text>();
         tracker = GameObject.FindObjectOfType<LevelTracker>();
@@ -32,7 +35,9 @@ public class Timer : MonoBehaviour {
 		else {
 	    	theText.fontSize = 1;
 	    	theText.text = "Balloons\nDestroyed\n" + balloonsDestroyed;
-	    	if (reportingSpikes == expectedSpikes) {
+			Debug.Log (totalEvilBalloons);
+			Debug.Log (evilBalloonsKilled);
+			if (reportingSpikes == expectedSpikes && evilBalloonsKilled == totalEvilBalloons)  {
 	        	endWaitTimer = (endWaitTimer <= 0.0f) ? 0.0f : endWaitTimer - Time.deltaTime;
                 if (endWaitTimer <= 0.0f) {
 		    		nextLevelTimer = (nextLevelTimer <= 0.0f) ? 0.0f : nextLevelTimer - Time.deltaTime;

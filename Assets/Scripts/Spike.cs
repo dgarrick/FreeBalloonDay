@@ -27,6 +27,18 @@ public class Spike : MonoBehaviour {
                 hitBalloon = true;
             }
         }
+
+		bool killBadBalloon = false;
+		GameObject[] evilBalloons = GameObject.FindGameObjectsWithTag("EvilBalloon");
+		foreach (GameObject balloon in evilBalloons) 
+		{
+			if (Vector3.Distance(balloon.transform.position, gameObject.transform.position) < 2)
+			{
+				balloon.GetComponent<AudioSource>().Play();
+				timer.evilBalloonsKilled += 1;
+			}
+		}
+
         if (!hitBalloon)
         {
             gameObject.GetComponent<AudioSource>().Play();
